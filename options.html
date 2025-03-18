@@ -10,56 +10,48 @@
 <head>
     <title>Limit History Lifespan Options</title>
     <style>
-        #content {
-            background-color: white;
-            border: 4px solid #0266C8;
-            border-radius: 12px;
-            margin: 40px auto 20px;
-            padding: 8px;
-            width: 600px;
+        body {
+            font-family: system-ui, sans-serif;
+            min-width: 300px;
+            padding: 16px;
+            font-size: 14px;
         }
         .option_row {
-            clear: left;
-            padding: 2.5em 1em 0;
-            text-align:center
+            text-align: center;
+            margin-bottom: 16px;
         }
         #logo {
-            font-size: 20px;
+            font-size: 16px;
+            font-weight: bold;
             text-align: center;
+            margin-bottom: 16px;
+        }
+        select {
+            margin: 0 8px;
+        }
+        .footer {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 16px;
+            color: #666;
         }
     </style>
 
 </head>
 <body>
-<div id="content">
-    <div id = "logo">
-        <label>Limit History Entry Lifetime Options</label>
-    </div>
+<div id="logo">Limit History Settings</div>
 
-    <div class="option_row">
-        <div>
-            <table cellpadding=1 width=100%>
-                <tr><td colspan="5"><hr></td></tr>
-                <tr>
-                    <td width="30%">
-                        &nbsp;
-                    </td>
-                    <td width="60%" align="left">
-                        <span id="historyLimitText" title="">Limit history lifespan to <select id="selectHistoryLimit"></select> days.</span>
-                    </td>
-                    <td width="10%"></td>
-                </tr>
-                <tr><td colspan="5"><hr></td></tr>
-            </table>
-            <br><span style="font-size: x-small; font-family: Verdana; color:#888" id="statusBar">&nbsp;</span>
-        </div>
+<div class="option_row">
+    <div>
+        <label for="selectHistoryLimit">Limit history lifespan to <select id="selectHistoryLimit"></select> days.</label>
+        <div id="statusBar">&nbsp;</div>
     </div>
 </div>
-<div style="text-align: center;">
-      <span style="font-size: x-small; font-family: Verdana">Copyright &copy; Nick Semenkovich 2014
-          <br>&lt;<a href="mailto:semenko@alum.mit.edu">semenko@alum.mit.edu</a>&gt;<br>
-        Open source at <a href="https://github.com/semenko/chrome-limit-history-lifetime">GitHub</a> (License: MIT)
-          </span>
+
+<div class="footer">
+    Copyright &copy; Nick Semenkovich 2014
+    <br>&lt;<a href="mailto:semenko@alum.mit.edu">semenko@alum.mit.edu</a>&gt;
+    <br>Open source at <a href="https://github.com/semenko/chrome-limit-history-lifetime">GitHub</a> (License: MIT)
 </div>
 <script src="options.js"></script>
 </body>

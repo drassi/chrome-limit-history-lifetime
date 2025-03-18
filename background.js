@@ -11,16 +11,18 @@
 
 function scanHistory() {
     // Grab the history preference, or default to 4 days.
-    var maxHistoryLifeInDays = JSON.parse(localStorage.historyLimit || 4);
-
-    var maxHistoryLifeInMilliseconds = maxHistoryLifeInDays * 24 * 60 * 60 * 1000;
-
-    var maxTime = Date.now() - maxHistoryLifeInMilliseconds;
-
-    // Wow, this is an easy API.
-    chrome.history.deleteRange({startTime: 0, endTime: maxTime},
-        function() { if (chrome.runtime.lastError) { console.warn(chrome.runtime.lastError); } }
-    );
+    chrome.storage.local.get(['historyLimit'], function(result) {
+        var maxHistoryLifeInDays = result.historyLimit || 4;
+        
+        var maxHistoryLifeInMilliseconds = maxHistoryLifeInDays * 24 * 60 * 60 * 1000;
+        
+        var maxTime = Date.now() - maxHistoryLifeInMilliseconds;
+        
+        // Wow, this is an easy API.
+        chrome.history.deleteRange({startTime: 0, endTime: maxTime},
+            function() { if (chrome.runtime.lastError) { console.warn(chrome.runtime.lastError); } }
+        );
+    });
 }
 
 
